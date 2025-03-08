@@ -1,0 +1,4 @@
+3/19/2019 12:26:16 PM | System.NullReferenceException: Object reference not set to an instance of an object.
+   at ES_Thesis.Accounting.frm_Accounting.sendMsg(String data) in C:\Users\TRANCIENT\Desktop\ES_Thesis\ES_Thesis\Accounting\frm_Accounting.cs:line 145
+   at ES_Thesis.Accounting.frm_Accounting.disconnect() in C:\Users\TRANCIENT\Desktop\ES_Thesis\ES_Thesis\Accounting\frm_Accounting.cs:line 117
+

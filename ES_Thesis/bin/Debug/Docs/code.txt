@@ -1,0 +1,65 @@
+if (fb.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    String temp_code = Global.num(5);
+                    Global.EndTask("winword");
+                    File.Copy(Global.exePath + "\\Docs\\rf_front.docx", String.Format("{0}\\{1}[{2}]RegForm.docx", @fb.SelectedPath, temp_code, Global.stud_info), true);
+                    object missing = Missing.Value;
+                    Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                    Word.Document aDoc = null;
+                    object filename = String.Format("{0}\\{1}[{2}]RegForm.docx", @fb.SelectedPath, temp_code, Global.stud_info);
+                    if (File.Exists((string)filename))
+                    {
+                        object readOnly = false;
+                        object isVisible = false;
+                        wordApp.Visible = false;
+                        aDoc = wordApp.Documents.Open(ref filename, ref missing,
+                        ref readOnly, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref isVisible, ref missing, ref missing,
+                        ref missing, ref missing);
+                        aDoc.Activate();
+                        int unit_total = 0;
+                        String[] letters = { "","a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m" };
+                        for (int x = 1; x <= 7; x++)
+                        {
+                            for (int i = 1; i <= lst_subject_input.Items.Count; i++)
+                            {
+                                if (String.IsNullOrEmpty(lst_subject_input.Items[x].SubItems[i].Text) || String.IsNullOrWhiteSpace(lst_subject_input.Items[x].SubItems[i].Text))
+                                {
+                                    Global.FindAndReplace(wordApp, String.Format("<{0}{1}>", i.ToString(), letters[i]), "");
+                                }
+                                else
+                                {
+                                    Global.FindAndReplace(wordApp, String.Format("<{0}{1}>", i.ToString(), letters[i]), lst_subject_input.Items[x].SubItems[i].Text);
+                                }
+                            }
+                        }
+
+                        aDoc.Save();
+
+                        Global.EndTask("winword");
+                        MessageBox.Show("Student Information successfully exported.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Global.EndTask("winword");
+                        String ID_F = Global.data(20);
+                        String fname = String.Format("{0}\\{1}[{2}]RegForm.docx", @fb.SelectedPath, temp_code, Global.stud_info);
+                        string[] sizes = { "B", "KB", "MB", "GB" };
+                        double len = new FileInfo(fname).Length;
+                        int order = 0;
+                        while (len >= 1024 && ++order < sizes.Length) { len = len / 1024; }
+                        string result = String.Format("{0:0.##} {1}", len, sizes[order]);
+                        String name_F = String.Format("{0}[{1}]CDA.docx", temp_code, Global.cd_ID);
+                        String type_F = Path.GetExtension(fname);
+                        String size_F = result;
+                        DBMysql.SQL(String.Format("insert into tbl_files(ID,acc_ID,fname,ftype,fsize,file,Date)values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                        ID_F, Global.ID, name_F, type_F, size_F, Global.Compress(Convert.ToBase64String(File.ReadAllBytes(fname))), DateTime.Now.ToShortDateString()));
+                    }
+                    else
+                    {
+                        MessageBox.Show("File does not exist.", "No File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Global.EndTask("winword");
+                    }
+                }
+                catch (Exception x) { MessageBox.Show(this, x.Message, "Syntax Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
