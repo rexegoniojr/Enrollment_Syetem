@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F93EC6D-C0E2-410C-929C-DB04D1B79A18}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ES_Thesis</RootNamespace>
+    <AssemblyName>ES_Thesis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>E:\SIBTECH\02-13-18\Enrollments\Enrollments\bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounting\frm_Accounting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frm_Accounting.Designer.cs">
+      <DependentUpon>frm_Accounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frm_history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frm_history.Designer.cs">
+      <DependentUpon>frm_history.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frm_MyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frm_MyAccount.Designer.cs">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frm_Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frm_Payment.Designer.cs">
+      <DependentUpon>frm_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frm_Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frm_Students.Designer.cs">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_Accounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Accounts.Designer.cs">
+      <DependentUpon>frm_Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_MyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_MyAccount.Designer.cs">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Schedule.Designer.cs">
+      <DependentUpon>frm_Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Students.Designer.cs">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat\Client.Designer.cs">
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\Listener.cs" />
+    <Compile Include="Chat\QueryReader.cs" />
+    <Compile Include="Chat\Server_Controll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat\Server_Controll.Designer.cs">
+      <DependentUpon>Server_Controll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\TCPComms.cs" />
+    <Compile Include="DBMysql.cs" />
+    <Compile Include="DBSqlite.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Admin.Designer.cs">
+      <DependentUpon>frm_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_files.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_files.Designer.cs">
+      <DependentUpon>frm_files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="PaymentData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_CDAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_CDAS.Designer.cs">
+      <DependentUpon>frm_CDAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_Course.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_Course.Designer.cs">
+      <DependentUpon>frm_Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_EForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_EForm.Designer.cs">
+      <DependentUpon>frm_EForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_MyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_MyAccount.Designer.cs">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_Registrar.Designer.cs">
+      <DependentUpon>frm_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_Students.Designer.cs">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frm_student_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frm_student_info.Designer.cs">
+      <DependentUpon>frm_student_info.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Accounting\frm_Accounting.resx">
+      <DependentUpon>frm_Accounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frm_history.resx">
+      <DependentUpon>frm_history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frm_MyAccount.resx">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frm_Payment.resx">
+      <DependentUpon>frm_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frm_Students.resx">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_Accounts.resx">
+      <DependentUpon>frm_Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_MyAccount.resx">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_Schedule.resx">
+      <DependentUpon>frm_Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_Students.resx">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat\Client.resx">
+      <DependentUpon>Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat\Server_Controll.resx">
+      <DependentUpon>Server_Controll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_Admin.resx">
+      <DependentUpon>frm_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_files.resx">
+      <DependentUpon>frm_files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_CDAS.resx">
+      <DependentUpon>frm_CDAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_Course.resx">
+      <DependentUpon>frm_Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_EForm.resx">
+      <DependentUpon>frm_EForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_MyAccount.resx">
+      <DependentUpon>frm_MyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_Registrar.resx">
+      <DependentUpon>frm_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_Students.resx">
+      <DependentUpon>frm_Students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frm_student_info.resx">
+      <DependentUpon>frm_student_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{6F09AE79-4522-48C6-B6CC-C88FCB64F5E1}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sibtech logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-transaction-list-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-planner-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contacts-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-person-80.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
